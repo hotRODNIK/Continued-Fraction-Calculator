@@ -9,13 +9,13 @@ public class Fraction {
 
     public void setNumerator(int numerator) {
         this.numerator = numerator;
-        Reduce();
+        reduce();
     }
 
     public void setDenominator(int denominator) {
         if (denominator != 0) {
             this.denominator = denominator;
-            Reduce();
+            reduce();
         }
     }
 
@@ -27,7 +27,7 @@ public class Fraction {
         return denominator;
     }
 
-    public void Reduce(){
+    public void reduce(){
         int gcd = getGcd(this.numerator, this.denominator);
         this.numerator = this.numerator / gcd;
         this.denominator = this.denominator / gcd;

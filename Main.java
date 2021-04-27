@@ -1,6 +1,5 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String [] args) {
@@ -8,7 +7,7 @@ public class Main {
         Fraction r = new Fraction();
         Fraction i = new Fraction();
         Fraction out, f;
-        ArrayList<Integer> seq = new ArrayList<>();
+        ArrayList seq = new ArrayList();
 
 
         try (Scanner s = new Scanner(System.in)) {
@@ -21,13 +20,13 @@ public class Main {
             out = r;
 
             // Calculate the continued fraction representation
-            while (!MathOperations.EqualZero(r)){
+            while (!MathOperations.equalZero(r)){
                 i.setNumerator(-((int) Math.floor(r.toDecimal())));
                 i.setDenominator(1);
-                f = MathOperations.Add(r, i);
-                seq.add(-(i.getNumerator()));
+                f = MathOperations.add(r, i);
+                seq.append(-(i.getNumerator()));
                 if (f.getNumerator() != 0){
-                    r = MathOperations.Invert(f);
+                    r = MathOperations.invert(f);
                 }
                 else{
                     r = f;
