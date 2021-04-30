@@ -9,19 +9,18 @@ public class Main {
         Fraction out, f;
         ArrayList seq = new ArrayList();
 
-
         try (Scanner s = new Scanner(System.in)) {
             // Read in input from the user
             System.out.println("Welcome to the Continued Fraction Calculator for Rational Numbers\n" +
                     "Please enter a Numerator => ");
-            r.setNumerator(s.nextInt());
+            r.setNumerator(s.nextLong());
             System.out.println("Please enter a Denominator => ");
-            r.setDenominator(s.nextInt());
+            r.setDenominator(s.nextLong());
             out = r;
 
             // Calculate the continued fraction representation
             while (!MathOperations.equalZero(r)){
-                i.setNumerator(-((int) Math.floor(r.toDecimal())));
+                i.setNumerator(-((long) Math.floor(r.toDecimal())));
                 i.setDenominator(1);
                 f = MathOperations.add(r, i);
                 seq.append(-(i.getNumerator()));

@@ -1,44 +1,55 @@
 public class Fraction {
-    private int numerator;
-    private int denominator;
+    private long numerator;
+    private long denominator;
 
     public Fraction(){
         this.numerator = 1;
         this.denominator = 1;
     }
 
-    public void setNumerator(int numerator) {
+    public Fraction(int num, int denom){
+        this.numerator = num;
+        if (denom != 0){
+            this.denominator = denom;
+        }
+        else{
+            this.denominator = 1;
+        }
+        reduce();
+    }
+
+    public void setNumerator(long numerator) {
         this.numerator = numerator;
         reduce();
     }
 
-    public void setDenominator(int denominator) {
+    public void setDenominator(long denominator) {
         if (denominator != 0) {
             this.denominator = denominator;
             reduce();
         }
     }
 
-    public int getNumerator() {
+    public long getNumerator() {
         return numerator;
     }
 
-    public int getDenominator() {
+    public long getDenominator() {
         return denominator;
     }
 
     public void reduce(){
-        int gcd = getGcd(this.numerator, this.denominator);
+        long gcd = getGcd(this.numerator, this.denominator);
         this.numerator = this.numerator / gcd;
         this.denominator = this.denominator / gcd;
     }
 
-    private static int getGcd(int num, int denom){
+    private static long getGcd(long num, long denom){
         if (denom == 0){
             return num;
         }
         else{
-            return getGcd(denom, num%denom);
+            return getGcd(denom, num % denom);
         }
     }
 

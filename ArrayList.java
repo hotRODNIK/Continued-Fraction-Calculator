@@ -6,14 +6,14 @@ public class ArrayList {
     }
 
     // Adds a value to the end of the ArrayList
-    public void append(int value){
+    public void append(long value){
         // Boolean flag
         boolean isAdded = false;
 
         // Starting at the front, find the first nonempty element
         for (int i = 0; i < list.length && !isAdded; i++){
             if (list[i] == null){
-                list[i] = Integer.toString(value);
+                list[i] = Long.toString(value);
                 isAdded = true;
             }
         }
@@ -24,7 +24,7 @@ public class ArrayList {
 
             for (int i = 0; i < list.length && !isAdded; i++){
                 if (list[i] == null){
-                    list[i] = Integer.toString(value);
+                    list[i] = Long.toString(value);
                     isAdded = true;
                 }
             }
@@ -43,7 +43,8 @@ public class ArrayList {
     }
 
     // Overridden toString method, which properly formats the stored coefficients into the proper tuple notation
-    @Override public String toString() {
+    @Override
+    public String toString() {
         StringBuilder s = new StringBuilder();
 
         s.append("[").append(list[0]).append(";");
