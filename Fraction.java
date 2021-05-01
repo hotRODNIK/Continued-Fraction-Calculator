@@ -7,17 +7,6 @@ public class Fraction {
         this.denominator = 1;
     }
 
-    public Fraction(int num, int denom){
-        this.numerator = num;
-        if (denom != 0){
-            this.denominator = denom;
-        }
-        else{
-            this.denominator = 1;
-        }
-        reduce();
-    }
-
     public void setNumerator(long numerator) {
         this.numerator = numerator;
         reduce();

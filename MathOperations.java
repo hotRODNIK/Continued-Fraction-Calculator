@@ -11,15 +11,6 @@ public class MathOperations {
         return three;
     }
 
-    // Function which implements multiplication of fractions
-    public static Fraction multiply(Fraction one, Fraction two){
-        Fraction three = new Fraction();
-        three.setNumerator(one.getNumerator() * two.getNumerator());
-        three.setDenominator(one.getDenominator() * two.getDenominator());
-        three.reduce();
-        return three;
-    }
-
     // Function which inverts a fraction
     public static Fraction invert(Fraction one){
         Fraction two = new Fraction();
