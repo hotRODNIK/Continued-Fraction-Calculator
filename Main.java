@@ -1,5 +1,4 @@
 import java.math.BigInteger;
-import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
