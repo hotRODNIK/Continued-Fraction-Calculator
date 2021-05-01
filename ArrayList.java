@@ -1,4 +1,6 @@
 import java.math.BigInteger;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class ArrayList {
     private String[] list;
@@ -63,7 +65,8 @@ public class ArrayList {
         return s.toString();
     }
 
-    public String dumpContents() {
+    public void dumpContents() throws FileNotFoundException{
+        PrintWriter p = new PrintWriter("out.csv");
         StringBuilder s = new StringBuilder();
         s.append("n").append("  a(n)\n");
 
@@ -73,6 +76,7 @@ public class ArrayList {
             }
         }
 
-        return s.toString();
+        p.println(s.toString());
+        p.close();
     }
 }

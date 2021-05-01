@@ -35,10 +35,12 @@ public class Main {
             // Output the results
             System.out.println("The Continued Fraction Representation of " + out.toString() + ", in decimal notation, " +
                     out.toDecimal() + " is " + seq.toString() + ".");
-            System.out.println(seq.dumpContents());
+            seq.dumpContents();
+            System.out.println("Output Successfully Written to Disk in 'out.csv' - End of Program.");
         } catch (NumberFormatException e) {
             System.out.println("Invalid Input - Make Sure Your Input Strings are Formatted Correctly!!!");
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             // Should never go into this block
             System.out.println("Fatal Error");
         }
