@@ -1,3 +1,5 @@
+import java.math.BigInteger;
+
 public class ArrayList {
     private String[] list;
 
@@ -6,14 +8,14 @@ public class ArrayList {
     }
 
     // Adds a value to the end of the ArrayList
-    public void append(long value){
+    public void append(BigInteger value){
         // Boolean flag
         boolean isAdded = false;
 
         // Starting at the front, find the first nonempty element
         for (int i = 0; i < list.length && !isAdded; i++){
             if (list[i] == null){
-                list[i] = Long.toString(value);
+                list[i] = value.toString();
                 isAdded = true;
             }
         }
@@ -24,7 +26,7 @@ public class ArrayList {
 
             for (int i = 0; i < list.length && !isAdded; i++){
                 if (list[i] == null){
-                    list[i] = Long.toString(value);
+                    list[i] = value.toString();
                     isAdded = true;
                 }
             }
@@ -57,6 +59,19 @@ public class ArrayList {
 
         s.deleteCharAt(s.length() - 1);
         s.append("]");
+
+        return s.toString();
+    }
+
+    public String dumpContents() {
+        StringBuilder s = new StringBuilder();
+        s.append("n").append("  a(n)\n");
+
+        for (int i = 0; i < list.length; i++){
+            if (list[i] != null){
+                s.append(i).append("  ").append(list[i]).append("\n");
+            }
+        }
 
         return s.toString();
     }

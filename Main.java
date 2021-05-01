@@ -1,4 +1,5 @@
-import java.util.InputMismatchException;
+import java.math.BigInteger;
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
@@ -13,18 +14,18 @@ public class Main {
             // Read in input from the user
             System.out.println("Welcome to the Continued Fraction Calculator for Rational Numbers\n" +
                     "Please enter a Numerator => ");
-            r.setNumerator(s.nextLong());
+            r.setNumerator(new BigInteger(s.next()));
             System.out.println("Please enter a Denominator => ");
-            r.setDenominator(s.nextLong());
+            r.setDenominator(new BigInteger(s.next()));
             out = r;
 
             // Calculate the continued fraction representation
             while (!MathOperations.equalZero(r)){
-                i.setNumerator(-((long) Math.floor(r.toDecimal())));
-                i.setDenominator(1);
+                i.setNumerator(new BigInteger(r.toIntegerDivisionString()).negate());
+                i.setDenominator(new BigInteger("1"));
                 f = MathOperations.add(r, i);
-                seq.append(-(i.getNumerator()));
-                if (f.getNumerator() != 0){
+                seq.append(i.getNumerator().negate());
+                if (!f.getNumerator().equals(new BigInteger("0"))){
                     r = MathOperations.invert(f);
                 }
                 else{
@@ -35,7 +36,8 @@ public class Main {
             // Output the results
             System.out.println("The Continued Fraction Representation of " + out.toString() + ", in decimal notation, " +
                     out.toDecimal() + " is " + seq.toString() + ".");
-        } catch (InputMismatchException e) {
+            System.out.println(seq.dumpContents());
+        } catch (NumberFormatException e) {
             System.out.println("Invalid Input - Make Sure Your Input Strings are Formatted Correctly!!!");
         } catch (Exception e) {
             // Should never go into this block
