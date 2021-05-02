@@ -68,11 +68,11 @@ public class ArrayList {
     public void dumpContents() throws FileNotFoundException{
         PrintWriter p = new PrintWriter("out.csv");
         StringBuilder s = new StringBuilder();
-        s.append("n").append("  a(n)\n");
+        s.append("n").append(", a(n)\n");
 
         for (int i = 0; i < list.length; i++){
             if (list[i] != null){
-                s.append(i).append("  ").append(list[i]).append("\n");
+                s.append(i).append(", ").append(list[i]).append("\n");
             }
         }
 
